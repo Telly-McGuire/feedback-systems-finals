@@ -2,41 +2,67 @@
   --background: #ffffff;
   --foreground: #171717;
 }
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
+  margin: 0;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: grey;
+  background: color(blue);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+
+title{
+  font-size: 300px;
 }
 
-a {
-  color: inherit;
+nav {
+  background-color: navy;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em 1em;
+}
+
+/* Navigation Links */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1em;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
   text-decoration: none;
+  color: white;
+  padding: 0.5em;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+nav ul li a:hover {
+  background-color: #575757;
+  border-radius: 5px;
+  color: #f0a500;
+}
+
+nav .brand {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.card-header{
+  background-color: grey;
+  padding: 20px;
+  text-align: center;
+  font-size: 30px;
 }
