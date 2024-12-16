@@ -34,7 +34,13 @@ export default function Home() {
 
         <h1 style={{textAlign:"center"}}>Welcome to Republic Of the Philippines</h1>
         <h2 style={{textAlign:"center"}}> Public Feedback Gathering System</h2>
-
+        <div className={styles.center}>
+          <button className={styles.button}>
+            <a href="#Link">
+              <span>Enter Feedback Here</span>
+            </a>
+          </button>
+        </div>
       </main>
 
       <footer className={styles.footer}>
