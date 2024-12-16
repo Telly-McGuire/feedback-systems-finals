@@ -7,15 +7,15 @@ export default function Home() {
       <head>
         <title>Gobyerno Ng Pilipinas Tangina</title>
       </head>
-      
+
       <nav className={styles.nav}>
         <div className={styles.brand}>
           <Image
             src="/Seal_of_the_Philippines.svg.png"
             alt="Seal of the Philippines"
-            width={80} 
-            height={80} 
-            priority 
+            width={80}
+            height={80}
+            priority
           />
         </div>
         <div className={styles.brand} style={{ textAlign: "left" }}>
@@ -29,13 +29,33 @@ export default function Home() {
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      
+
       <main className={styles.main}>
-        <h1>Welcome to the Republic of The Philippines</h1>
+        <section id="home" className={styles.welcomeSection}>
+          <h1 style={{ textAlign: "center" }}>Welcome to the Republic of The Philippines</h1>
+          <p style={{ textAlign: "center" }}>
+            This is the official feedback system where your voice matters. Feel free to navigate through the
+            system to share your thoughts, report concerns, and access services.
+          </p>
+          <div className={styles.ctaButtons} style={{ textAlign: "center", marginTop: "20px" }}>
+            <a href="#services" className={styles.ctaButton}>View Services</a>
+            <a href="#contact" className={styles.ctaButton}>Contact Us</a>
+          </div>
+        </section>
       </main>
-      
+
       <footer className={styles.footer}>
-        <p>© 2024 Gobyerno ng Pilipinas. All rights reserved.</p>
+        <div className={styles.footerContent}>
+          <p>© 2024 Gobyerno ng Pilipinas. All rights reserved.</p>
+          <ul className={styles.footerLinks}>
+            <li><a href="#privacy">Privacy Policy</a></li>
+            <li><a href="#terms">Terms of Use</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div style={{ textAlign: "center", marginTop: "10px" }}>
+          <p>Designed by the National IT Department</p>
+        </div>
       </footer>
     </>
   );
