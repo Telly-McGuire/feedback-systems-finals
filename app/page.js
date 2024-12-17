@@ -26,7 +26,7 @@ export default function Home() {
         <div className={styles.brand}>Official Feedback System</div>
         <ul className={styles.navList}>
           <li><a href="/">Home</a></li>
-          <li><Link href=''>Feedback Form</Link></li>
+          <li><Link href='/pages/feedbackpage'>Feedback Form</Link></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -80,9 +80,7 @@ export default function Home() {
         </ul>
 
           <button className={styles.button}>
-            <a href="#Link">
-              <span>Enter Feedback Here</span>
-            </a>
+          <Link href='/pages/feedbackpage'><span>Submit Feedback Here</span></Link>
           </button>
 
         </div>
