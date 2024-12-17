@@ -1,5 +1,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import Link from "next/link";
+
 
 export default function Home() {
   return (
@@ -23,8 +25,8 @@ export default function Home() {
         </div>
         <div className={styles.brand}>Official Feedback System</div>
         <ul className={styles.navList}>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
+          <li><a href="/">Home</a></li>
+          <li><Link href=''>Feedback Form</Link></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
