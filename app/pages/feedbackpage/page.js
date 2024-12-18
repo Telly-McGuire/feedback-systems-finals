@@ -94,17 +94,11 @@ export default function Feedback() {
           />
         </div>
         <div className={styles.brand} style={{ textAlign: "left" }}>
-        <Link href='https://www.gov.ph/the-philippines-3/' style={{color: "white"}}>Republic of The Philippines</Link>
+          Republic of The Philippines
         </div>
         <div className={styles.brand}>Official Feedback System</div>
         <ul className={styles.navList}>
-<<<<<<< HEAD
           <li><Link href='/'>Home</Link></li>
-          <li><Link href='/pages/feedbackform'>Feedback Form</Link></li>
-          <li><a href="#services">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-=======
-          <li><a href="/">Home</a></li>
           <li><Link href='/pages/feedbackpage'>Feedback Form</Link></li>
           <li><Link href='/pages/history'>History</Link></li>
           <li><Link href='/pages/polls'>Polls</Link></li>
@@ -112,9 +106,8 @@ export default function Feedback() {
           <li><Link href='/pages/sentiment'>Sentiment</Link></li> 
           <li><Link href='/pages/services'></Link>Services</li>
           <li><Link href='/pages/contact'></Link>Contact</li>
->>>>>>> ef5dfc655997ae95b29008d15eec2490242cfe32
         </ul>
-      </nav>
+      </nav>  
 
       <main className={styles.main}>
         <h1>Survey Form</h1>

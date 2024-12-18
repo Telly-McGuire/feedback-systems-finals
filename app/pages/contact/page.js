@@ -6,7 +6,6 @@ import styles from "../../page.module.css";
 const ContactPage = () => {
   return (
     <>
-      {/* Navigation Bar */}
       <nav className={styles.nav}>
         <div className={styles.brand}>
           <Image
@@ -22,14 +21,14 @@ const ContactPage = () => {
         </div>
         <div className={styles.brand}>Official Feedback System</div>
         <ul className={styles.navList}>
-          <li><a href="/">Home</a></li>
-          <li><Link href='/pages/feedbackpage'>Feedback Form</Link></li>
-          <li><Link href='/pages/history'>History</Link></li>
-          <li><Link href='/pages/polls'>Polls</Link></li>
-          <li><Link href='/pages/survey'>Survey</Link></li> 
-          <li><Link href='/pages/sentiment'>Sentiment</Link></li> 
-          <li><Link href='/pages/services'></Link>Services</li>
-          <li><Link href='/pages/contact'></Link>Contact</li>
+          <li><Link href="/">Home</Link></li>
+          <li><Link href="/pages/feedbackpage">Feedback Form</Link></li>
+          <li><Link href="/pages/history">History</Link></li>
+          <li><Link href="/pages/polls">Polls</Link></li>
+          <li><Link href="/pages/survey">Survey</Link></li>
+          <li><Link href="/pages/sentiment">Sentiment</Link></li>
+          <li><Link href="/pages/services">Services</Link></li>
+          <li><Link href="/pages/contact">Contact</Link></li>
         </ul>
       </nav>
 
@@ -37,7 +36,7 @@ const ContactPage = () => {
       <main className={styles.main}>
         <h1>Contact Us</h1>
         <p>
-          Have questions, feedback, or need assistance? We're here to help. Reach out to us through any of the following channels:
+          Have questions, feedback, or need assistance? We&apos;re here to help. Reach out to us through any of the following channels:
         </p>
 
         <div className={styles.contactInfo}>
