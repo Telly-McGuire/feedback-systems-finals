@@ -69,12 +69,11 @@ const PollPage = () => {
         <ul className={styles.navList}>
           <li><Link href='/'>Home</Link></li>
           <li><Link href='/pages/feedbackpage'>Feedback Form</Link></li>
-          <li><Link href='/pages/history'>History</Link></li>
-          <li><Link href='/pages/polls'>Polls</Link></li>
+          <li><Link href='/pages/history'>History</Link></li>         
           <li><Link href='/pages/survey'>Survey</Link></li> 
           <li><Link href='/pages/sentiment'>Sentiment</Link></li> 
-          <li><Link href='/pages/services'></Link>Services</li>
-          <li><Link href='/pages/contact'></Link>Contact</li>
+          <li><Link href='/pages/services'>Services</Link></li>
+          <li><Link href='/pages/contact'>Contact</Link></li>
         </ul>
       </nav>  
 
