@@ -8,6 +8,8 @@ import Link from "next/link";
 
 const HistoryPages = () => {
   const [feedbacks, setFeedbacks] = useState([]);
+  const [polls, setPolls] = useState([]); // Poll state
+  const [surveys, setSurveys] = useState([]); // Survey state
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [selectedFeedbacks, setSelectedFeedbacks] = useState({}); // Track selected feedbacks using an object
@@ -16,14 +18,30 @@ const HistoryPages = () => {
     const fetchFeedbacks = async () => {
       try {
         // Fetch all feedback documents from Firestore
-        const querySnapshot = await getDocs(collection(db, "feedback"));
-        const feedbackData = querySnapshot.docs.map((doc) => ({
+        const feedbackSnapshot = await getDocs(collection(db, "feedback"));
+        const feedbackData = feedbackSnapshot.docs.map((doc) => ({
           id: doc.id,
           ...doc.data(),
         }));
         setFeedbacks(feedbackData); // Store feedback data in state
+
+        // Fetch poll documents from Firestore
+        const pollSnapshot = await getDocs(collection(db, "polls"));
+        const pollData = pollSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setPolls(pollData); // Store poll data in state
+
+        // Fetch survey documents from Firestore
+        const surveySnapshot = await getDocs(collection(db, "surveys"));
+        const surveyData = surveySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setSurveys(surveyData); // Store survey data in state
       } catch (error) {
-        setError("Failed to fetch feedbacks. Please try again later.");
+        setError("Failed to fetch data. Please try again later.");
       } finally {
         setLoading(false); // Set loading to false after fetching
       }
@@ -77,7 +95,7 @@ const HistoryPages = () => {
   };
 
   if (loading) {
-    return <div>Loading feedbacks...</div>;
+    return <div>Loading data...</div>;
   }
 
   if (error) {
@@ -87,7 +105,7 @@ const HistoryPages = () => {
   return (
     <>
       <head>
-        <title>Feedback History - Gobyerno Ng Pilipinas</title>
+        <title>History - Gobyerno Ng Pilipinas</title>
       </head>
 
       <nav className={styles.nav}>
@@ -109,63 +127,106 @@ const HistoryPages = () => {
           <li><Link href='/pages/feedbackpage'>Feedback Form</Link></li>
           <li><Link href='/pages/history'>History</Link></li>
           <li><Link href='/pages/polls'>Polls</Link></li>
-          <li><Link href='/pages/survey'>Survey</Link></li> 
-          <li><Link href='/pages/sentiment'>Sentiment</Link></li> 
+          <li><Link href='/pages/survey'>Survey</Link></li>
+          <li><Link href='/pages/sentiment'>Sentiment</Link></li>
           <li><Link href='/pages/services'></Link>Services</li>
           <li><Link href='/pages/contact'></Link>Contact</li>
         </ul>
       </nav>
 
       <main className={styles.main}>
-        <div className={styles.scrollable}>
-          <h1>Feedback History</h1>
+        <div className={styles.contentWrapper}>
+          {/* Feedback Section */}
+          <div className={styles.feedbackColumn}>
+            <h1>Feedback History</h1>
+            {feedbacks.length === 0 ? (
+              <p>No feedbacks available.</p>
+            ) : (
+              <>
+                
 
-          {feedbacks.length === 0 ? (
-            <p>No feedbacks available.</p>
-          ) : (
-            <>
-              <button
-                className={styles.deleteButton}
-                onClick={handleDeleteSelected}
-                disabled={Object.keys(selectedFeedbacks).length === 0}
-              >
-                Delete Selected Feedbacks
-              </button>
+                <ul className={styles.feedbackList}>
+                  {feedbacks.map((feedback) => (
+                    <li
+                      key={feedback.id}
+                      className={`${styles.feedbackItem} ${selectedFeedbacks[feedback.id] ? styles.selected : ''}`}
+                      onClick={() => handleSelectFeedback(feedback.id)} // Select the whole item on click
+                    >
+                      <input
+                        type="checkbox"
+                        checked={selectedFeedbacks[feedback.id] || false} // Checkbox will reflect the selection state
+                        onChange={() => handleSelectFeedback(feedback.id)} // Toggle on checkbox click
+                      />
+                      <p><strong>Name:</strong> {feedback.name || "Anonymous"}</p>
+                      <p><strong>Rating:</strong> {feedback.stars} stars</p>
+                      <p><strong>Comments:</strong> {feedback.comments}</p>
+                      {selectedFeedbacks[feedback.id] && (
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation(); // Prevent triggering card selection when deleting
+                            handleDelete(feedback.id);
+                          }}
+                          className={styles.deleteButton}
+                        >
+                          Delete
+                        </button>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </div>
+            
+          {/* Poll and Survey Section */}
+          <div className={styles.pollSurveyColumn}>
+            <div className={styles.pollSection}>
+              
+              <h2>Poll Results</h2>
+              {polls.length === 0 ? (
+                <p>No polls available.</p>
+              ) : (
+                <ul className={styles.pollList}>
+                  {polls.map((poll) => (
+                    <li key={poll.id}>
+                      <h3>{poll.title}</h3>
+                      {poll.options.map((option) => (
+                        <p key={option.id}>
+                          {option.text}: {option.votes} votes
+                        </p>
+                      ))}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
 
-              <ul className={styles.feedbackList}>
-                {feedbacks.map((feedback) => (
-                  <li
-                    key={feedback.id}
-                    className={`${styles.feedbackItem} ${selectedFeedbacks[feedback.id] ? styles.selected : ''}`}
-                    onClick={() => handleSelectFeedback(feedback.id)} // Select the whole item on click
-                  >
-                    <input
-                      type="checkbox"
-                      checked={selectedFeedbacks[feedback.id] || false} // Checkbox will reflect the selection state
-                      onChange={() => handleSelectFeedback(feedback.id)} // Toggle on checkbox click
-                    />
-                    <p><strong>Name:</strong> {feedback.name || "Anonymous"}</p>
-                    <p><strong>Rating:</strong> {feedback.stars} stars</p>
-                    <p><strong>Comments:</strong> {feedback.comments}</p>
-                    {selectedFeedbacks[feedback.id] && (
-                      <button
-                        onClick={(e) => {
-                          e.stopPropagation(); // Prevent triggering card selection when deleting
-                          handleDelete(feedback.id);
-                        }}
-                        className={styles.deleteButton}
-                      >
-                        Delete
-                      </button>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </>
-          )}
+            <div className={styles.surveySection}>
+              <h2>Survey Results</h2>
+              {surveys.length === 0 ? (
+                <p>No surveys available.</p>
+              ) : (
+                <ul className={styles.surveyList}>
+                  {surveys.map((survey) => (
+                    <li key={survey.id}>
+                      <h3>{survey.title}</h3>
+                      {survey.questions.map((question) => (
+                        <p key={question.id}>
+                          {question.text}: {question.type === "number" ? `Rating: ${question.averageRating}` : `Answer: ${question.textAnswer}`}
+                        </p>
+                      ))}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          </div>
         </div>
       </main>
-
+              <ul>
+              </ul>
+              <ul>
+              </ul>
       <footer className={styles.footer}>
         <div className={styles.brand} style={{ textAlign: "left" }}>
           Project by :
