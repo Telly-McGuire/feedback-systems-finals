@@ -52,7 +52,6 @@ const PollPage = () => {
 
   return (
     <div>
-      {/* Navigation Bar */}
       <nav className={styles.nav}>
         <div className={styles.brand}>
           <Image
@@ -68,16 +67,16 @@ const PollPage = () => {
         </div>
         <div className={styles.brand}>Official Feedback System</div>
         <ul className={styles.navList}>
-          <li><a href="/">Home</a></li>
-          <li><Link href="/pages/feedbackpage">Feedback Form</Link></li>
-          <li><Link href="/pages/history">History</Link></li>
-          <li><Link href="/pages/polls">Polls</Link></li>
-          <li><Link href="/pages/survey">Survey</Link></li>
-          <li><Link href="/pages/sentiment">Sentiment</Link></li>
-          <li><Link href="/pages/services">Services</Link></li>
-          <li><Link href="/pages/contact">Contact</Link></li>
+          <li><Link href='/'>Home</Link></li>
+          <li><Link href='/pages/feedbackpage'>Feedback Form</Link></li>
+          <li><Link href='/pages/history'>History</Link></li>
+          <li><Link href='/pages/polls'>Polls</Link></li>
+          <li><Link href='/pages/survey'>Survey</Link></li> 
+          <li><Link href='/pages/sentiment'>Sentiment</Link></li> 
+          <li><Link href='/pages/services'></Link>Services</li>
+          <li><Link href='/pages/contact'></Link>Contact</li>
         </ul>
-      </nav>
+      </nav>  
 
       <div className={styles.pollPage}>
         <h1>Community Polls</h1>

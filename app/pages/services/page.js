@@ -22,7 +22,7 @@ const ServicesPage = () => {
         </div>
         <div className={styles.brand}>Official Feedback System</div>
         <ul className={styles.navList}>
-          <li><a href="/">Home</a></li>
+          <li><Link href='/'>Home</Link></li>
           <li><Link href='/pages/feedbackpage'>Feedback Form</Link></li>
           <li><Link href='/pages/history'>History</Link></li>
           <li><Link href='/pages/polls'>Polls</Link></li>
@@ -31,7 +31,7 @@ const ServicesPage = () => {
           <li><Link href='/pages/services'></Link>Services</li>
           <li><Link href='/pages/contact'></Link>Contact</li>
         </ul>
-      </nav>
+      </nav>  
 
       {/* Main Content */}
       <main className={styles.main}>
