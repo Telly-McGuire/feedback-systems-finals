@@ -21,13 +21,13 @@ export default function Home() {
           />
         </div>
         <div className={styles.brand} style={{ textAlign: "left" }}>
-          Republic of The Philippines
+          <Link href='https://www.gov.ph/the-philippines-3/' style={{color: "white"}}>Republic of The Philippines</Link>
         </div>
         <div className={styles.brand}>Official Feedback System</div>
         <ul className={styles.navList}>
           <li><a href="/">Home</a></li>
           <li><Link href='/pages/feedbackpage'>Feedback Form</Link></li>
-          <li><a href="#services">Services</a></li>
+          <li><a href="#services">About</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
