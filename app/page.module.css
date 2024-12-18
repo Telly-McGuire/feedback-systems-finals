@@ -166,3 +166,275 @@ a.secondary {
     filter: invert();
   }
 }
+.surveyForm {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem; /* Add space between form elements */
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.surveyForm label {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.surveyForm .inputField,
+.surveyForm .selectField,
+.surveyForm .textareaField {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 1rem; /* Add space below each form element */
+}
+
+.surveyForm .textareaField {
+  resize: vertical;
+}
+
+.starRating {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 2rem; /* Adjust star size */
+  margin-bottom: 1rem; /* Add space below the star rating */
+}
+
+.star {
+  color: #ccc; /* Default star color */
+  transition: color 0.2s ease-in-out;
+}
+
+.star.active {
+  color: #f4b400; /* Active star color */
+}
+
+.star:hover {
+  color: #ffd700; /* Hover star color */
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  background-color: #0070f3;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-top: 5rem; /* Add space above button */
+}
+
+.button:hover {
+  background-color: #005bb5;
+}
+.successMessage {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+}
+.errorMessage {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+.closeButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.closeButton:hover {
+  background-color: #0056b3;
+}
+/* History Page Styles */
+.historyPage {
+  padding: 20px;
+}
+.historyPage h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.deleteButton {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.deleteButton:hover {
+  background-color: darkred;
+}
+
+.feedbackList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.feedbackItem {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.feedbackItem input[type="checkbox"] {
+  margin-right: 10px;
+}
+.selected {
+  background-color: #f0f0f0; /* Light gray background for selected cards */
+  border: 2px solid #007bff; /* Blue border to highlight the card */
+}
+.contactInfo ul, .socialLinks {
+  list-style: none;
+  padding: 0;
+}
+
+.contactInfo li, .socialLinks li {
+  margin: 10px 0;
+}
+
+.socialLinks a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.socialLinks a:hover {
+  text-decoration: underline;
+}
+.pollPage, .addPoll {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+.pollCard {
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+}
+
+.pollCard h2 {
+  margin-top: 0;
+  color: #003366;
+}
+
+.pollOption {
+  margin: 10px 0;
+}
+
+.pollOption label {
+  font-size: 16px;
+}
+
+.pollPage {
+  padding: 30px;
+  background-color: #ffffff;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.pollOption input[type="radio"] {
+  margin-right: 10px;
+}
+
+.pollOption input[type="radio"]:checked {
+  background-color: #003366;
+}
+
+.button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.addPoll {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.addPoll h2 {
+  margin-top: 0;
+  color: #003366;
+}
+
+.addPoll input[type="text"], .addPoll input[type="radio"], .addPoll textarea {
+  font-size: 16px;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.addPoll textarea {
+  height: 100px;
+}
+
+.optionInput input {
+  width: 80%;
+}
+
+
+
+
+
+
+.pollOption {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.pollOption input[type="text"] {
+  flex: 1;
+}
+
+.pollOption label {
+  margin-left: 10px;
+}
+
+
